@@ -4,206 +4,52 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(239, 234, 231);
-}
-
-/* Define basic styles for the menu bar */
-h2{  
+    background-image: url('Images/ss133.gif');
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center; /* centers both horizontally and vertically */
+    background-color: #222;
+    color: white;
     text-align: center;
-    font-family:'poppins';
-    font-weight: normal;
-    color: rgb(94, 94, 94);;
-    margin-top: 50px;
-    margin-bottom: 3px;
-}
-p{
-    text-align: center;
-    margin: 0 auto;
-    font-family:'Space Mono';
-    color: rgb(94, 94, 94);
-    font-size: 13px;
 }
 
-/* gradient generator */
-.generatorbox{
-    width: 600px;
-    height: 400px;
-    max-width: calc(95% - 20px); /* 20px margin on both right and left sides */
-    max-height: 400px; /* Limit the maximum height to 400px */
-    margin: 0 auto; /* Center the box horizontally */
-    background-color: white;
-    margin-top: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 30px;
-}
-   
-#gradient-box{
-    width:500px;
-    height:300px;
-    max-width:100%;
-    margin: auto;
-    background-image: linear-gradient(rgb(185, 192, 236), rgb(180, 222, 236), rgb(231, 165, 203));
+.vertical-nav {
+  display: flex;
+  flex-direction: column;          /* stack links vertically */
+  align-items: left;             /* center horizontally */
+  border: 1px solid white;      /* border around navigation */
+  padding: 20px;
+  width: 150px;                    /* fixed width */
+  background-color: black;   /* optional transparent background */
+  position: relative;
+  margin: 0px;               /* center on page horizontally */
+  font-family: Arial, sans-serif;
 }
 
-.button{
-    font-family:'Space Mono';
-    margin-top: 15px;   
+.vertical-nav .nav-title {
+  position: absolute;
+  top: -12px;
+  left: 50px;
+  transform: translateX(-50%);
+  background-color: black;         /* same as page background */
+  padding: 0 10px;
+  color: white;
+  font-weight: bold;
 }
 
-.centered-container
-{
-    text-align: center; /* Center horizontally */   
+.vertical-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;                       /* spacing between links */
+  margin-top: 0px;
 }
 
-/* music player */
-
-
-.btn {
-    background-color: transparent;
-    color: rgb(94, 94, 94);
-    border:none;
-    cursor: pointer;
+.vertical-nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 0px 0px;
+  text-align: left;
 }
-
-.btn:hover {
-    background: linear-gradient(80deg,rgb(180, 222, 236), #ffcc00,rgb(231, 165, 203)); /* Change the gradient colors as desired */
-    -webkit-background-clip: text; /* Apply gradient only to the text content */
-    color: transparent; /* Make the original text color transparent */
-}
-
-.btn {
-    color: rgb(94, 94, 94);
-    font-size: 18px;
-    align-items: center;
-    margin-top: 5px; 
-    margin-left: 10px;
-    
-}
-
-#myAudio{
-    display: none;
-}
-
-/* ABOUT */
-.imgteam {
-    width: 100%; /* Adjust the percentage as needed */
-    max-width: 100%; /* Ensures the image won't exceed its natural width */
-    height: auto; /* Automatically scales the height to maintain aspect ratio */
-    margin-top: 30px;
-    
-}
-
-.teamabout{
-    font-family:'Space Mono';
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/* MENU BAR */
-header a{
-    text-decoration: none;
-}
-
-header{
-    padding: 0 20px;
-    background-color: white;
-    height: 30px;
-    display: flex;
-    justify-content: space-between;
-
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    
-}
-
-#brand {
-    font-weight: bold;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-}
-
-#brand a {
-    color:rgb(93, 158, 141);
-    font-family:'poppins';
-}
-
-ul {
-    list-style: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-ul a {
-    color:rgb(94, 94, 94);
-    font-family:'Space Mono';
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-ul li {
-    padding: 10px;
-    margin-left: 10px;
-}
-
-ul li a:hover {
-    background: linear-gradient(80deg,rgb(180, 222, 236), #ffcc00,rgb(231, 165, 203)); /* Change the gradient colors as desired */
-    -webkit-background-clip: text; /* Apply gradient only to the text content */
-    color: transparent; /* Make the original text color transparent */
-}
-
-#hamburger-icon{
-    margin: auto 0;
-    display: none;
-    cursor: pointer;
-}
-
-#hamburger-icon div{
-    
-    color:rgb(94, 94, 94);
-    font-family:'Space Mono';
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.open .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    height: calc(100vh - 50px);
-    width: 100%;
-}
-
-.mobile-menu li {
-    background-color: white;
-    width: 80px;
-    height: 50px;
-    margin-left: 90px;
-    text-align: center;
-
-}
-
-
-@media only screen and (max-width: 600px){
-    header nav{
-        display: none;
-    }
-    #hamburger-icon{
-        display: block;
-    }
-}
-
 
