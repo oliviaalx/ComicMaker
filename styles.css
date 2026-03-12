@@ -7,15 +7,7 @@ height: 100vh; /* 100% of the viewport height */
 overflow: hidden; /* prevents scrolling */
 }
 
-h1 {
-  display: inline-block;
-  position: relative;  
-  transform: translate(850px, 140px); /* x=0, y=20px down */
-  color: white;
-  z-index: 1000; 
-  font-size: 36px;
-  margin: 0;
-}
+
 
 .container{
 max-width:1000px;
@@ -54,7 +46,7 @@ color:white;
   align-content: start;
 
   max-height: 700px;
-  overflow-y: auto;
+  
   scrollbar-width: none;
 }
 
@@ -76,6 +68,23 @@ background:black;
 padding:0 5px;
 font-size:14px;
 }
+
+.logo{
+position:absolute;
+top:-23px;
+left:290px;
+padding:0 5px;
+background-color: black;
+font-size:34px;
+font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .logo {
+    display: none;
+  }
+}
+
 
 nav ul{
 list-style:none;
