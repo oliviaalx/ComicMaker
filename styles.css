@@ -1,6 +1,8 @@
 body{
 background-image:url('Images/ss133.gif');
 font-family:"JetBrains Mono", monospace;
+
+
 }
 
 .container{
@@ -73,7 +75,9 @@ grid-column:1 / 2;
 .item1 ul{
   max-height: 100px;
   overflow-y: auto;
+  scrollbar-width: none;
 }
+
 
 .item2{
 grid-row:1 / 3;
