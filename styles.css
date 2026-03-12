@@ -10,7 +10,7 @@ overflow: hidden; /* prevents scrolling */
 h1 {
   display: inline-block;
   position: relative;  
-  transform: translate(850px, 170px); /* x=0, y=20px down */
+  transform: translate(850px, 140px); /* x=0, y=20px down */
   color: white;
   z-index: 1000; 
   font-size: 36px;
@@ -19,7 +19,7 @@ h1 {
 
 .container{
 max-width:1000px;
-margin:150px auto;
+margin:120px auto;
 display:grid;
 gap:10px;
 grid-template-columns:1fr 3fr 1fr;
