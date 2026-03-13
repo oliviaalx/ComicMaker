@@ -8,7 +8,7 @@ overflow: hidden; /* prevents scrolling */
 }
 
 .container{
-  position: relative; /* add this */
+position: relative; /* add this */
 max-width:1000px;
 margin:120px auto;
 display:grid;
@@ -26,7 +26,11 @@ font-size:34px;
 font-weight: bold;
 color: white;
 z-index: 10; /* above other content */
+display: block;      /* ensure it shows on larger screens */
 }
+
+
+
 @media (max-width: 900px) {
   .logos {
     display: none; /* hides the logo */
