@@ -19,12 +19,13 @@ grid-template-rows:auto auto;
 
 .logos{
 position:absolute;
-top:-20px;
-left:500px;
+top:-40px;
+left:550px;
 padding:0 5px;
 font-size:34px;
 font-weight: bold;
 color: white;
+background-color: black;
 z-index: 10; /* above other content */
 display: block;      /* ensure it shows on larger screens */
 }
