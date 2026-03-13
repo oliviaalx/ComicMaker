@@ -10,16 +10,16 @@ overflow: hidden; /* prevents scrolling */
 .container{
 position: relative; /* add this */
 max-width:1000px;
-margin:120px auto;
+margin:150px auto;
 display:grid;
 gap:10px;
-grid-template-columns:1fr 3fr 1fr;
+grid-template-columns:0.5fr 3fr 1fr;
 grid-template-rows:auto auto;
 }
 
 .logos{
 position:absolute;
-top:-40px;
+top:-25px;
 left:550px;
 padding:0 5px;
 font-size:34px;
@@ -38,7 +38,7 @@ display: block;      /* ensure it shows on larger screens */
   }
 }
 
-.item1,.item2,.item3,.item4,.item5,.item6,.drawing{
+.item1,.item2,.item3,.item4,.item5,.item6,.item7,.drawing{
 border:1px solid white;
 background:black;
 position:relative;
@@ -127,7 +127,7 @@ h2{
   font-size: 17px;
 }
 
-.item2, .item6{
+.item2, .item6,.item7{
   font-size: 12px;
   padding:5px 5px;
 }
