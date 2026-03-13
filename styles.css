@@ -115,7 +115,6 @@ text-decoration:underline;
 color:greenyellow;
 }
 
-
 .item1 ul{
   max-height: 100px;
   overflow-y: auto;
@@ -144,25 +143,21 @@ color:greenyellow;
 .item3 img{
 width:100%;
 height:auto;
-display:block;
+display:block
 }
 
 .drawing img{
 width:100%;
 height:auto;
-display:block;
 }
-.drawing p{
-  margin-top: 0px;
+.drawing{
+  padding:5px
 }
 
-.item4{
+
+.item4,.item5{
 text-align:center;
 font-size: 12px;
-}
-
-.item5{
-text-align:center;
 }
 
 /* CRT Overlay (covers everything including h1) */
