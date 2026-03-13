@@ -7,15 +7,30 @@ height: 100vh; /* 100% of the viewport height */
 overflow: hidden; /* prevents scrolling */
 }
 
-
-
 .container{
+  position: relative; /* add this */
 max-width:1000px;
 margin:120px auto;
 display:grid;
 gap:10px;
 grid-template-columns:1fr 3fr 1fr;
 grid-template-rows:auto auto;
+}
+
+.logos{
+position:absolute;
+top:-20px;
+left:500px;
+padding:0 5px;
+font-size:34px;
+font-weight: bold;
+color: white;
+z-index: 10; /* above other content */
+}
+@media (max-width: 900px) {
+  .logos {
+    display: none; /* hides the logo */
+  }
 }
 
 .item1,.item2,.item3,.item4,.item5,.item6,.drawing{
@@ -46,7 +61,7 @@ color:white;
   align-content: start;
 
   max-height: 700px;
-  
+  overflow-y: auto;
   scrollbar-width: none;
 }
 
@@ -67,16 +82,6 @@ left:10px;
 background:black;
 padding:0 5px;
 font-size:14px;
-}
-
-.logo{
-position:absolute;
-top:-23px;
-left:290px;
-padding:0 5px;
-background-color: black;
-font-size:34px;
-font-weight: bold;
 }
 
 @media (max-width: 900px) {
