@@ -38,7 +38,7 @@ display: block;      /* ensure it shows on larger screens */
   }
 }
 
-.item1,.item2,.item3,.item4,.item5,.item6,.item7,.drawing,.updates{
+.item1,.item2,.item3,.item4,.item5,.item6,.item7,.drawing,.updates,.drawing_planet{
 border:1px solid white;
 background:black;
 position:relative;
@@ -152,6 +152,12 @@ height:auto;
 }
 .drawing{
   padding:5px
+}
+
+.drawing_planet img{
+  height: auto;
+  display: block;
+  width: 100%;
 }
 
 
