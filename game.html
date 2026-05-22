@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Game</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+    }
+    #output {
+      white-space: pre-wrap;
+      border: 1px solid lime;
+      padding: 10px;
+      height: 300px;
+      overflow-y: auto;
+    }
+    input, button {
+      background: black;
+      color: lime;
+      border: 1px solid lime;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Word Game</h2>
+
+<div id="output"></div>
+<input id="input" type="text" maxlength="20">
+<button onclick="run()">Enter</button>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+
+<script>
+let pyodide;
+
+async function main() {
+  pyodide = await loadPyodide();
+
+  pyodide.runPython(`
+import random
+
+words = ['dog','cat','horse','monkey']
+correctGuess = []
+result = ""
+userLetter = ""
+
+def pick_word(words):
+    return random.choice(words)
+
+def populate_correct_guess(word):
+    correctGuess.clear()
+    for _ in word:
+        correctGuess.append("_ ")
+
+def letter_position(letter,word):
+    correctGuess[word.index(letter)] = letter
+
+def string(lst):
+    return "".join(lst)
+
+def check_for_letter(word,user_letter):
+    while user_letter not in word:
+        return False
+    else:
+        return True
+
+def validation(userletter):
+    if len(userletter) > 1:
+        return "Please enter only one letter!"
+    elif userletter == "":
+        return "Please enter 1 character!"
+    elif userletter == " ":
+        return "Please enter 1 character!"
+    elif userletter.isnumeric():
+        return "This is not a character!"
+    elif userletter.isupper():
+        return "Lower case only!"
+    else:
+        return True
+
+word = pick_word(words)
+populate_correct_guess(word)
+
+output = "Word: " + string(correctGuess)
+  `);
+
+  print(pyodide.runPython("output"));
+}
+
+function print(text) {
+  document.getElementById("output").innerText += "\n" + text;
+}
+
+async function run() {
+  let input = document.getElementById("input").value;
+  document.getElementById("input").value = "";
+
+  let validation = pyodide.globals.get("validation")(input);
+
+  if (validation !== true) {
+    print(validation);
+    return;
+  }
+
+  let exists = pyodide.runPython(`
+check_for_letter(word, "${input}")
+  `);
+
+  if (exists) {
+    pyodide.runPython(`
+letter_position("${input}", word)
+    `);
+    print(input + " is in the word");
+  } else {
+    print(input + " is not in the word");
+  }
+
+  let display = pyodide.runPython(`string(correctGuess)`);
+  print("Word: " + display);
+
+  let word = pyodide.runPython("word");
+  if (display === word) {
+    print("Yay! You have guessed the word!");
+  }
+}
+
+main();
+</script>
+
+</body>
+</html>
