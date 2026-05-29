@@ -38,7 +38,7 @@ display: block;      /* ensure it shows on larger screens */
   }
 }
 
-.item1,.item2,.item3,.item4,.item5,.item6,.item7,.drawing,.updates,.drawing_planet{
+.item1,.item2,.item4,.item5,.item6,.item7,.drawing,.updates,.drawing_planet{
 border:1px solid white;
 background:black;
 position:relative;
@@ -147,7 +147,6 @@ display:block
 }
 
 .item4 img{
-  float: left;
   padding-top: 10px;
 }
 

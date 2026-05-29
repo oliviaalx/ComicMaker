@@ -1,136 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Game</title>
-  <style>
-    body {
-      background: black;
-      color: lime;
-      font-family: monospace;
-    }
-    #output {
-      white-space: pre-wrap;
-      border: 1px solid lime;
-      padding: 10px;
-      height: 300px;
-      overflow-y: auto;
-    }
-    input, button {
-      background: black;
-      color: lime;
-      border: 1px solid lime;
-      font-family: monospace;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+<div class="container">
+  <header class="logos">★</header>
+  <div class="leftColumn">
+    <nav class="item1">
+      <span class="label">♥︎</span>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="game.html">Game</a></li>
+        <li><a href="links.html">Links</a></li>
+        <li><a href="">Buy me a coffee</a></li>
+      </ul>
+    </nav>
+  </div>
 
-<h2>Word Game</h2>
+  <div class="middleColumn">
+    <div class="drawing">
+      <h2>NOT READY</h2>
+    </div>
+  </div>
 
-<div id="output"></div>
-<input id="input" type="text" maxlength="20">
-<button onclick="run()">Enter</button>
+  <div class="rightColumn">
+    <div class="item3">
+      <span class="label"></span>
+      <img src="Images/planet.png" alt="me image">
+    </div>
+    <div class="item5">
+      <span class="label">my time</span>
+      <iframe src="https://free.timeanddate.com/clock/iabpia0c/n136/fcfff/tct/pct"
+      frameborder="0"
+      width="113"
+      height="18"></iframe>
+    </div>
+    <div class="item6">
+      <span class="label">about me</span>
+      <P>name: Jet</P>
+      <P>birthday: 11/02</P>
+      <p>sign: aquarius</p>
+    </div>
+    <div class="item4">
+      <span class="label">status</span>
+      <img src="gifs/flower.gif" alt="Description of the animated GIF">
+      <img src="gifs/heartbounce.gif" alt="Description of the animated GIF">
+      <img src="gifs/hello.gif" alt="Description of the animated GIF" >
+      <img src="gifs/computer.gif" alt="Description of the animated GIF">
+    </div>
+    <div class="item7">
+      <span class="label">favourites</span>
+      <p>animal: dog</p>
+      <p>food: orange</p>
+      <p>drink: water</p>
+      <p>Song: mr blue sky</p>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+  </div>
 
-<script>
-let pyodide;
-
-async function main() {
-  pyodide = await loadPyodide();
-
-  pyodide.runPython(`
-import random
-
-words = ['dog','cat','horse','monkey']
-correctGuess = []
-result = ""
-userLetter = ""
-
-def pick_word(words):
-    return random.choice(words)
-
-def populate_correct_guess(word):
-    correctGuess.clear()
-    for _ in word:
-        correctGuess.append("_ ")
-
-def letter_position(letter,word):
-    correctGuess[word.index(letter)] = letter
-
-def string(lst):
-    return "".join(lst)
-
-def check_for_letter(word,user_letter):
-    while user_letter not in word:
-        return False
-    else:
-        return True
-
-def validation(userletter):
-    if len(userletter) > 1:
-        return "Please enter only one letter!"
-    elif userletter == "":
-        return "Please enter 1 character!"
-    elif userletter == " ":
-        return "Please enter 1 character!"
-    elif userletter.isnumeric():
-        return "This is not a character!"
-    elif userletter.isupper():
-        return "Lower case only!"
-    else:
-        return True
-
-word = pick_word(words)
-populate_correct_guess(word)
-
-output = "Word: " + string(correctGuess)
-  `);
-
-  print(pyodide.runPython("output"));
-}
-
-function print(text) {
-  document.getElementById("output").innerText += "\n" + text;
-}
-
-async function run() {
-  let input = document.getElementById("input").value;
-  document.getElementById("input").value = "";
-
-  let validation = pyodide.globals.get("validation")(input);
-
-  if (validation !== true) {
-    print(validation);
-    return;
-  }
-
-  let exists = pyodide.runPython(`
-check_for_letter(word, "${input}")
-  `);
-
-  if (exists) {
-    pyodide.runPython(`
-letter_position("${input}", word)
-    `);
-    print(input + " is in the word");
-  } else {
-    print(input + " is not in the word");
-  }
-
-  let display = pyodide.runPython(`string(correctGuess)`);
-  print("Word: " + display);
-
-  let word = pyodide.runPython("word");
-  if (display === word) {
-    print("Yay! You have guessed the word!");
-  }
-}
-
-main();
-</script>
-
+</div>
 </body>
 </html>
