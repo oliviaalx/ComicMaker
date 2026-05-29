@@ -146,6 +146,11 @@ height:auto;
 display:block
 }
 
+.item4 img{
+  float: left;
+  padding-top: 10px;
+}
+
 .drawing img{
 width:100%;
 height:auto;
